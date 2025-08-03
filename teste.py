@@ -276,68 +276,63 @@ with open('TESTE-SELENIUM-DNS-JAN_FEV (2).csv','r') as cartao:
 
             # GOOGLE GSUITE SUPERNOVA
             elif 'DL *GOOGLE GSUITEasupe' in linha[4] and '5393' in linha[2] and int(linha[1][0:2]) == 6:
-                importa('DNS', contaDNS, 'GOOGLE - GSUITE', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'GOOGLE - GSUITE', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', vencSPN, idSPN, empSPN,locSPN)
             # LOVABLE
             elif 'LOVABLE' in linha[4] and '0799' in linha[2] and int(linha[1][0:2]) == 13:
-                importa('DNS', contaDNS, 'LOVABLE', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'LOVABLE', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', vencSPN, idSPN, empSPN,locSPN)
             #  MANUS
             elif 'MANUS AI' in linha[4] and '0799' in linha[2] and int(linha[1][0:2]) == 15:
-                importa('DNS', contaDNS, 'MANUS AI', 'PRODUTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'MANUS AI', 'PRODUTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', vencSPN, idSPN, empSPN,locSPN)
             # OPENAI CONTROLADORIA DIA 17
             elif 'OPENAI *CHATGPT SUBSCR' in linha[4] and '7666' in linha[2] and int(linha[1][0:2]) == 17:
-                importa('DNS', contaDNS, 'OPENAI,LLC', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'OPENAI,LLC', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', vencSPN, idSPN, empSPN,locSPN)
             # OPENAIO PRODUTO DIA 3 E 19
             elif 'OPENAI *CHATGPT SUBSCR' in linha[4] and '6614' in linha[2] and (int(linha[1][0:2]) == 19 or int(linha[1][0:2]) == 3):
-                importa('DNS', contaDNS, 'OPENAI,LLC', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'OPENAI,LLC', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', vencSPN, idSPN, empSPN,locSPN)
             # GOOGLE ONE AUDIOVISUAL
             elif 'DL *GOOGLE Google One' in linha[4] and '3341' in linha[2] and int(linha[1][0:2]) == 25:
-                importa('DNS', contaDNS, 'GOOGLE - GSUITE', 'PRODUÇÃO AUDIOVISUAL', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'ADMINISTRATIVO: SUPERNOVA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'GOOGLE - GSUITE', 'PRODUÇÃO AUDIOVISUAL', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'ADMINISTRATIVO: SUPERNOVA', vencSPN, idSPN, empSPN,locSPN)
             # VERCEL
             elif 'VERCEL INC.' in linha[4] and '5393' in linha[2] and int(linha[1][0:2]) == 28:
-                importa('DNS', contaDNS, 'VERCEL INC.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'VERCEL INC.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', vencSPN, idSPN, empSPN,locSPN)
             # WORKSPACE FACE
             elif 'FACEBK' in linha[4] and '6614' in linha[2] and int(linha[1][0:2]) == 1:
-                importa('DNS', contaDNS, 'FACEBOOK SERVICOS ONLINE DO BRASIL LTDA', 'CAPITAL HUMANO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'FACEBOOK SERVICOS ONLINE DO BRASIL LTDA', 'CAPITAL HUMANO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', vencSPN, idSPN, empSPN,locSPN)
             # OPENAI JURIDICO CAMILA EMILY
             elif 'OPENAI *CHATGPT SUBSCR' in linha[4] and '6614' in linha[2] and int(linha[1][0:2]) == 4:
-                importa('DNS', contaDNS, 'OPENAI,LLC', 'JURÍDICO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'OPENAI,LLC', 'JURÍDICO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', vencSPN, idSPN, empSPN,locSPN)
             # SENDGRID 
             elif 'TWILIO SENDGRID' in linha[4] and '6614' in linha[2] and int(linha[1][0:2]) == 3:
-                importa('DNS', contaDNS, 'TWILIO EXPANSION LLC', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', vencDNS, idDNS, empDNS,locDNS)
+                importa('SUPERNOVA', contaSPN, 'TWILIO EXPANSION LLC', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', vencSPN, idSPN, empSPN,locSPN)
+
             
             
             ### ------------------------- COMPRAS SUPERNOVA -------------------------------- ###
 
-            #
-
-
-
-
-
-            
+            # NOTAZZ
             elif 'PG *NOTAZZ GESTAO FISC' in linha[4] and '9342' in linha[2] and int(linha[1][0:2]) == 15 and nvalor == '728,90':
-                importa('DNS', contaDNS, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'AUVP CONSULTORIA', vencDNS, idDNS, empDNS,locDNS)
-            # 
+                importa('AUVP', contaAUVP, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
+            # INVESTING
             elif 'INVESTING.COM' in linha[4] and '9033' in linha[2] and int(linha[1][0:2]) == 22 and nvalor == '99,00':
-                importa('DNS', contaDNS, 'INVESTING.COM', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.003 SERVIÇO DE ACESSO A CONTEÚDO', 'AUVP CONSULTORIA', vencDNS, idDNS, empDNS,locDNS)
-            # 
+                importa('AUVP', contaAUVP, 'INVESTING.COM', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.003 SERVIÇO DE ACESSO A CONTEÚDO', 'AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
+            # BR DID
             elif 'PG *BR DID TELEFONIA' in linha[4] and '3428' in linha[2] and int(linha[1][0:2]) == 25 and nvalor == '23,90':
-                importa('DNS', contaDNS, 'BR TECH TECNOLOGIA EM SISTEMAS LTDA', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencDNS, idDNS, empDNS,locDNS)
-            # 
+                importa('AUVP', contaAUVP, 'BR TECH TECNOLOGIA EM SISTEMAS LTDA', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
+            # TURBOSCRIBE
             elif 'TURBOSCRIBE' in linha[4] and '3428' in linha[2] and int(linha[1][0:2]) == 29:
-                importa('DNS', contaDNS, 'TURBOSCRIBE', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencDNS, idDNS, empDNS,locDNS)
-            # 
+                importa('AUVP', contaAUVP, 'TURBOSCRIBE', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
+            # OPUSCLIP
             elif 'OPUS CLIP' in linha[4] and '9342' in linha[2] and int(linha[1][0:2]) == 6:
-                importa('DNS', contaDNS, 'OPUS CLIP', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencDNS, idDNS, empDNS,locDNS)
-            # 
+                importa('AUVP', contaAUVP, 'OPUS CLIP', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
+            # GURU APRENDIZ
             elif 'GURU-APRENDIZ-II' in linha[4] and '9342' in linha[2] and int(linha[1][0:2]) == 9:
-                importa('DNS', contaDNS, 'DIGITAL MANAGER GURU - MARGEM INQUESTIONÁVEL SA', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP CONSULTORIA', vencDNS, idDNS, empDNS,locDNS)
-            # 
+                importa('AUVP', contaAUVP, 'DIGITAL MANAGER GURU - MARGEM INQUESTIONÁVEL SA', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
+            # AMAZON PRIME
             elif 'AmazonPrimeBR' in linha[4] and '3306' in linha[2] and int(linha[1][0:2]) == 11 and nvalor == '19,90':
-                importa('DNS', contaDNS, 'AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.', 'CONTROLADORIA E FINANÇAS', '3.5.1.05.023 OUTRAS DESPESAS ADMINISTRATIVAS', 'ADMINISTRATIVO: AUVP CONSULTORIA', vencDNS, idDNS, empDNS,locDNS)
-            # 
+                importa('AUVP', contaAUVP, 'AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.', 'CONTROLADORIA E FINANÇAS', '3.5.1.05.023 OUTRAS DESPESAS ADMINISTRATIVAS', 'ADMINISTRATIVO: AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
+            # RECLAME AQUI
             elif 'RECLAMEAQUI' in linha[4] and '3428' in linha[2] and int(linha[1][0:2]) == 15 and nvalor == '49,00':
-                importa('DNS', contaDNS, 'OBVIO BRASIL SOFTWARE E SERVICOS S.A.', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencDNS, idDNS, empDNS,locDNS)
+                importa('AUVP', contaAUVP, 'OBVIO BRASIL SOFTWARE E SERVICOS S.A.', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
 
             
             
