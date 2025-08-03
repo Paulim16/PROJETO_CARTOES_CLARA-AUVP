@@ -309,6 +309,12 @@ with open('TESTE-SELENIUM-DNS-JAN_FEV (2).csv','r') as cartao:
             ### ------------------------- COMPRAS SUPERNOVA -------------------------------- ###
 
             #
+
+
+
+
+
+            
             elif 'PG *NOTAZZ GESTAO FISC' in linha[4] and '9342' in linha[2] and int(linha[1][0:2]) == 15 and nvalor == '728,90':
                 importa('DNS', contaDNS, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'AUVP CONSULTORIA', vencDNS, idDNS, empDNS,locDNS)
             # 
