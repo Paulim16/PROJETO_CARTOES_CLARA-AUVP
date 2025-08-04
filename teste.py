@@ -80,7 +80,7 @@ def importa(empresa, conta, entidade, departamento, contadespesa, classe, vencim
     dados['ID DEPARTAMENTO'].append(f"=PROCX(E{i + 1};Departamentos!$B:$B;Departamentos!$A:$A;)")  #f"=PROCX(E{linha};Departamentos!$B:$B;Departamentos!$A:$A;)"
     dados['ID LOCALIDADE'].append(idloc)
 
-with open('CSV.csv','r') as cartao:
+with open('CSV4.csv','r') as cartao:
     leitor = csv.reader(cartao, delimiter=",")
    
 
@@ -307,32 +307,32 @@ with open('CSV.csv','r') as cartao:
 
             
             
-            ### ------------------------- COMPRAS SUPERNOVA -------------------------------- ###
+            ### ------------------------- COMPRAS AUVP -------------------------------- ###
 
             # NOTAZZ
             elif 'PG *NOTAZZ GESTAO FISC' in linha[2] and '9342' in linha[6] and int(linha[0][8:10]) == 15 and nvalor == '728,9':
-                importa('AUVP', contaAUVP, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
+                importa('AUVP CONSULTORIA', contaAUVP, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
             # INVESTING
             elif 'INVESTING.COM' in linha[2] and '9033' in linha[6] and int(linha[0][8:10]) == 22 and nvalor == '99,0':
-                importa('AUVP', contaAUVP, 'INVESTING.COM', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.003 SERVIÇO DE ACESSO A CONTEÚDO', 'AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
+                importa('AUVP CONSULTORIA', contaAUVP, 'INVESTING.COM', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.003 SERVIÇO DE ACESSO A CONTEÚDO', 'AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
             # BR DID
             elif 'PG *BR DID TELEFONIA' in linha[2] and '3428' in linha[6] and int(linha[0][8:10]) == 25 and nvalor == '23,9':
-                importa('AUVP', contaAUVP, 'BR TECH TECNOLOGIA EM SISTEMAS LTDA', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
+                importa('AUVP CONSULTORIA', contaAUVP, 'BR TECH TECNOLOGIA EM SISTEMAS LTDA', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
             # TURBOSCRIBE
             elif 'TURBOSCRIBE' in linha[2] and '3428' in linha[6] and int(linha[0][8:10]) == 29:
-                importa('AUVP', contaAUVP, 'TURBOSCRIBE', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
+                importa('AUVP CONSULTORIA', contaAUVP, 'TURBOSCRIBE', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
             # OPUSCLIP
             elif 'OPUS CLIP' in linha[2] and '9342' in linha[6] and int(linha[0][8:10]) == 6:
-                importa('AUVP', contaAUVP, 'OPUS CLIP', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
+                importa('AUVP CONSULTORIA', contaAUVP, 'OPUS CLIP', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)
             # GURU APRENDIZ
             elif 'GURU-APRENDIZ-II' in linha[2] and '9342' in linha[6] and int(linha[0][8:10]) == 9:
-                importa('AUVP', contaAUVP, 'DIGITAL MANAGER GURU - MARGEM INQUESTIONÁVEL SA', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
+                importa('AUVP CONSULTORIA', contaAUVP, 'DIGITAL MANAGER GURU - MARGEM INQUESTIONÁVEL SA', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
             # AMAZON PRIME
             elif 'AmazonPrimeBR' in linha[2] and '3306' in linha[6] and int(linha[0][8:10]) == 11 and nvalor == '19,9':
-                importa('AUVP', contaAUVP, 'AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.', 'CONTROLADORIA E FINANÇAS', '3.5.1.05.023 OUTRAS DESPESAS ADMINISTRATIVAS', 'ADMINISTRATIVO: AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
+                importa('AUVP CONSULTORIA', contaAUVP, 'AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.', 'CONTROLADORIA E FINANÇAS', '3.5.1.05.023 OUTRAS DESPESAS ADMINISTRATIVAS', 'ADMINISTRATIVO: AUVP CONSULTORIA', vencAUVP, idAUVP, empAUVP,locAUVP)
             # RECLAME AQUI
             elif 'RECLAMEAQUI' in linha[2] and '3428' in linha[6] and int(linha[0][8:10]) == 15 and nvalor == '49,0':
-                importa('AUVP', contaAUVP, 'OBVIO BRASIL SOFTWARE E SERVICOS S.A.', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)  
+                importa('AUVP CONSULTORIA', contaAUVP, 'OBVIO BRASIL SOFTWARE E SERVICOS S.A.', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', vencAUVP, idAUVP, empAUVP,locAUVP)  
             
 
             else:
