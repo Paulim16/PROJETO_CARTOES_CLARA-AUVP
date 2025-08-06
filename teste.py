@@ -87,14 +87,14 @@ with open('CSV4.csv','r') as cartao:
     for i, linha in enumerate(leitor):
         
         
-        if i >= 1:
+        while i >= 1:
 
             nvalor = linha[5].replace('.', ',')
 
             data = datetime.strptime(linha[0], "%Y-%m-%d")
             mes_seguinte = data + relativedelta(months=1)
 
-            
+            if 
             if int(linha[0][8:10]) >=16:
                 month = mes_seguinte.month
                 year = mes_seguinte.year
@@ -251,7 +251,7 @@ with open('CSV4.csv','r') as cartao:
                 importa('THEBRAIN', contaTB, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: THE BRAIN', vencTB, idTB, empTB,locTB)
             # GOOGLE WTF
             elif 'Google GSUITE_wtf.mais' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 1:
-                importa('THEBRAIN', contaTB, 'GOOGLE - GSUITE', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.03.001 PROPAGANDA E PUBLICIDADE - TRAFEGO', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', vencTB, idTB, empTB,locTB)
+                importa('THEBRAIN', contaTB, 'GOOGLE - GSUITE', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', vencTB, idTB, empTB,locTB)
             # MONGODBCLOUD
             elif 'MONGODBCLOUD PAULO' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 2:
                 importa('THEBRAIN', contaTB, 'MONGODB SERVICOS DE SOFTWARE NO BRASIL LTDA.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', vencTB, idTB, empTB,locTB)
@@ -278,7 +278,7 @@ with open('CSV4.csv','r') as cartao:
             elif 'DL *GOOGLE GSUITEasupe' in linha[2] and '5393' in linha[6] and int(linha[0][8:10]) == 6:
                 importa('SUPERNOVA', contaSPN, 'GOOGLE - GSUITE', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', vencSPN, idSPN, empSPN,locSPN)
             # LOVABLE
-            elif 'LOVABLE' in linha[2] and '0799' in linha[6] and int(linha[0][8:10]) == 13:
+            elif 'LOVABLE' in linha[2] and '0799' in linha[6] and (int(linha[0][8:10]) == 13 or int(linha[0][8:10]) == 1):
                 importa('SUPERNOVA', contaSPN, 'LOVABLE', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', vencSPN, idSPN, empSPN,locSPN)
             #  MANUS
             elif 'MANUS AI' in linha[2] and '0799' in linha[6] and int(linha[0][8:10]) == 15:
