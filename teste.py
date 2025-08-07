@@ -33,6 +33,8 @@ empDNS = '7'
 empTB = '10'
 empSPN = '6'
 empAUVP = '16'
+entidade = ''
+departamento = ''
 
 dados = {
     'EMPRESA': [],
@@ -128,7 +130,7 @@ with open('CSV4.csv','r') as cartao:
 
             
 
-            if int(linha[0][8:10]) >= (int(vencimento[0:2]) + 1):
+            if int(linha[0][8:10]) >= (int(vencimento[0:2]) - 6):
                 month = mes_seguinte.month
                 year = mes_seguinte.year
 
@@ -140,6 +142,13 @@ with open('CSV4.csv','r') as cartao:
             
 
             # cartao('DNS', contaDNS, 'ent', 'dep', 'cont', 'class', vencDNS, idDNS, empDNS,locDNS)
+
+            ###---------------------------------------------------------------------------------###
+            ###--------------------------- COMPRAS RECORRENTES ---------------------------------###
+            ###---------------------------------------------------------------------------------###
+
+# Aqui é onde ocorre a seleção para preencher, na planilha de importação, algumas abas de acordo com as assinaturas/compras/pagamentos que são feitos recorrentemente nos cartões, 
+# que, assim sendo, já contêm as abas de Entidade, Departamento, Centro de Custo e Classe já bem definidos.
 
             ### ------------------------- COMPRAS DNS -------------------------------- ###
             # FACEBOOK
@@ -215,7 +224,7 @@ with open('CSV4.csv','r') as cartao:
             elif 'SUPABASE' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 26:
                 importa(empresa, conta, 'SUPABASE', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP SEMPRE', venc, id, emp,loc)
             # NOTAZZ  
-            elif 'PG *NOTAZZ GESTAO FISC' in linha[2] and '32289' in linha[6] and int(linha[0][8:10]) == 26:
+            elif 'PG *NOTAZZ GESTAO FISC' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 26:
                 importa(empresa, conta, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # CLAUDE  
             elif 'CLAUDE.AI' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 27 and nvalor == '110,0':
@@ -360,12 +369,90 @@ with open('CSV4.csv','r') as cartao:
             elif 'AmazonPrimeBR' in linha[2] and '3306' in linha[6] and int(linha[0][8:10]) == 11 and nvalor == '19,9':
                 importa(empresa, conta, 'AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.', 'CONTROLADORIA E FINANÇAS', '3.5.1.05.023 OUTRAS DESPESAS ADMINISTRATIVAS', 'ADMINISTRATIVO: AUVP CONSULTORIA', venc, id, emp,loc)
             # RECLAME AQUI
-            elif 'RECLAMEAQUI' in linha[2] and '3428' in linha[6] and int(linha[0][8:10]) == 15 and nvalor == '49,a0':
+            elif 'RECLAMEAQUI' in linha[2] and '3428' in linha[6] and int(linha[0][8:10]) == 15 and nvalor == '49,9':
                 importa(empresa, conta, 'OBVIO BRASIL SOFTWARE E SERVICOS S.A.', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', venc, id, emp,loc)  
             
 
             else:
-                importa(empresa, conta, '', '', '', '', venc, id, emp,loc)
+            ###---------------------------------------------------------------------------------###
+            ###------------------------ DEPARTAMENTOS E ENTIDADES-------------------------------###
+            ###---------------------------------------------------------------------------------###
+#       Aqui é onde ocorre a seleção para preencher, na planilha de importação, a aba de Departamentos, de acordo com o usuário do cartão (suscetível à alterações na validação),
+#   e a aba de ENTIDADES de acordo com o Memorando que está contido no CSV das transações do cartão.
+            ###------------------------------- DEPARTAMENTOS -----------------------------------###
+
+                if 'Alyf' in linha[16]:
+                    departamento = 'TECNOLOGIA E DESENVOLVIMENTO'
+                elif 'Beatriz Henriques' in linha[16]:
+                    departamento = 'PRODUTO'
+                elif 'Mauricio  Imparato' in linha[16]:
+                    departamento = 'ATENDIMENTO E CX'
+                elif 'Cassimiro' in linha[16]:
+                    departamento = 'PRODUÇÃO AUDIOVISUAL'
+                elif 'Bruna Alencar' in linha[16]:
+                    departamento = 'CAPITAL HUMANO'
+                elif 'Brenner   Nepomuceno' in linha[16]:
+                    departamento = 'CONSULTORIA E INVESTIMENTOS'
+
+            ###------------------------------- ENTIDADES -----------------------------------###
+               
+                if 'FACEBK' in linha[2]:
+                    entidade = 'FACEBOOK SERVICOS ONLINE DO BRASIL LTDA'
+                elif 'WP MEDIA - IMAGIFY' in linha[2]:
+                    entidade = 'IMAGIFY'
+                elif 'OPENAI *CHATGPT SUBSCR' in linha[2]:
+                    entidade = 'OPENAI,LLC'
+                elif 'AmazonPrimeBR' in linha[2]:
+                    entidade = 'AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.'
+                elif 'FUNDAMENTEI.COM' in linha[2]:
+                    entidade = 'FUNDAMENTEI SERVICOS DE INFORMACAO LTDA'
+                elif 'BRAPI.DEV' in linha[2]:
+                    entidade = 'BRAPI ASL TECNOLOGIA LTDA'
+                elif 'STAPE, INC' in linha[2]:
+                    entidade = 'STAPE, INC.'
+                elif 'EBN *Canva' in linha[2]:
+                    entidade = 'CANVA PTY LTD.'
+                elif 'LEARNWORLDS CY LTD' in linha[2]:
+                    entidade = 'LEARNWORLDS (CY) LTD'
+                elif 'WINDSOR.AI' in linha[2]:
+                    entidade = 'WINDSOR.AI'
+                elif 'AOVS SISTEMAS DE INFOR' in linha[2]:
+                    entidade = 'AOVS SISTEMAS DE INFORMATICA SA'
+                elif 'ELEVENLABS.IO' in linha[2]:
+                    entidade = 'ELEVENLABS.IO'
+                elif 'MSFT *' in linha[2]:
+                    entidade = 'MICROSOFT INFORMATICA LTDA'
+                elif 'NOTIFICACOES INTELIGEN' in linha[2]:
+                    entidade = 'KIWIFY PAGAMENTOS, TECNOLOGIA E SERVICOS LTDA'
+                elif 'UAZAPI - API WHATSAPP' in linha[2]:
+                    entidade = 'UAZAPI'
+                elif 'TINY ERP' in linha[2]:
+                    entidade = 'OLIST TINY TECNOLOGIA LTDA'
+                elif 'ADOBE' in linha[2]:
+                    entidade = 'ADOBE SYSTEMS BRASIL LTDA.'
+                elif 'EBN *SEMRUSH' in linha[2]:
+                    entidade = 'SEMRUSH'
+                elif 'FIGMA' in linha[2]:
+                    entidade = 'FIGMA MONTHLY RENEWAL'
+                elif 'BITLY.COM' in linha[2]:
+                    entidade = 'BITLY COM'
+                elif 'MANYCHAT.COM' in linha[2]:
+                    entidade = 'MANYCHAT INC.'
+                elif 'SUPABASE' in linha[2]:
+                    entidade = 'SUPABASE'
+                elif 'PG *NOTAZZ GESTAO FISC' in linha[2]:
+                    entidade = 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA'
+                elif 'CLAUDE.AI' in linha[2] and '3559':
+                    entidade = 'CLAUDE.AI'
+                elif 'STACKBLITZ' in linha[2]:
+                    entidade = 'STACKBLITZ, INC'
+                
+
+
+                
+                
+
+                importa(empresa, conta, entidade, departamento, '', '', venc, id, emp,loc)
                 
 df = pd.DataFrame.from_dict(dados)
 df.to_excel("teste.xlsx", index = False)
