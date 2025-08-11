@@ -25,10 +25,10 @@ locDNS = '2'
 locTB = '3'
 locSPN = '1'
 locAUVP = '6'
-vencDNS = f"15/0{mes_atual}/2025"
-vencTB = f"15/0{mes_atual}/2025"
-vencSPN = f"12/0{mes_atual}/2025"
-vencAUVP = f"22/0{mes_atual}/2025"
+vencDNS = f"15/01/2025"
+vencTB = f"15/01/2025"
+vencSPN = f"12/01/2025"
+vencAUVP = f"22/01/2025"
 empDNS = '7'
 empTB = '10'
 empSPN = '6'
@@ -43,7 +43,7 @@ dados = {
     'CONTA DESPESAS': [],
     'CLASSE': [],
     'DATA': [],
-    'PERÍODO CONTÁBIL': [],  #VERIFICAR IDEIA DE SENDO DO DIA 16 AO DIA 31, MÊS ATUAL, E DO DIA 1 AO 16, MÊS SEGUINTE
+    'PERÍODO CONTÁBIL': [],  
     'VENCIMENTO': [],
     'VALOR TXT': [],
     'VALOR': [],
@@ -79,7 +79,7 @@ def importa(empresa, conta, entidade, departamento, contadespesa, classe, vencim
     dados['ID DEPARTAMENTO'].append(f"=PROCX(E{i + 1};Departamentos!$B:$B;Departamentos!$A:$A;)")  #f"=PROCX(E{linha};Departamentos!$B:$B;Departamentos!$A:$A;)"
     dados['ID LOCALIDADE'].append(idloc)
 
-with open('csv.csv','r') as cartao:
+with open('auvp.csv','r') as cartao:
     leitor = csv.reader(cartao, delimiter=",")
    
 
@@ -88,7 +88,7 @@ with open('csv.csv','r') as cartao:
         
         if i >= 1:
 
-            nvalor = linha[5].replace('.', ',')
+            nvalor = linha[5].strip().replace('"', '').replace('.', ',')
 
             data = datetime.strptime(linha[0], "%Y-%m-%d")
             mes_seguinte = data + relativedelta(months=1)
@@ -97,7 +97,7 @@ with open('csv.csv','r') as cartao:
             departamento = ''
             contaDespesa = ''
 
-            if linha[6] in ['2289', '5518' ,'3559' , '8389' , '2236' , '6693' , '5800' , '8409' , '5913' , '1582' , '2843' ,'9802' , '1686' , '4836' , '4952' , '5786' , '8549' , '7886' , '5168' , '5570' , '8773' , '3280']:
+            if linha[6].strip().replace('"', '') in ['2289', '5518' ,'3559' , '8389' , '2236' , '6693' , '5800' , '8409' , '5913' , '1582' , '2843' ,'9802' , '1686' , '4836' , '4952' , '5786' , '8549' , '7886' , '5168' , '5570' , '8773' , '3280']:
                 empresa = 'DNS'
                 vencimento = vencDNS
                 conta = contaDNS
@@ -105,15 +105,15 @@ with open('csv.csv','r') as cartao:
                 loc = locDNS
                 emp = empDNS
 
-            elif linha[6] in  ['7003'  , '8537' ,'5206' , '2599' , '6187' , '8534' , '4123' , '3484' , '1011' , '5790' , '8058' , '2508' , '9481' , '1145' , '5874' , '4758']:
-                empresa = 'THEBRAIN'
+            elif linha[6].strip().replace('"', '') in  ['7003'  , '8537' ,'5206' , '2599' , '6187' , '8534' , '4123' , '3484' , '1011' , '5790' , '8058' , '2508' , '9481' , '1145' , '5873' , '4758']:
+                empresa = 'THE BRAIN'
                 vencimento = vencTB
                 conta = contaTB
                 id = idTB
                 loc = locTB
                 emp = empTB
 
-            elif linha[6] in ['7737'  , '9074' , '0799' , '3341' , '3342' , '0126' , '6614' , '5409' , '6065' , '7666' , '5393' , '9926' , '9316' , '6761']:
+            elif linha[6].strip().replace('"', '') in ['7737'  , '9074' , '0799' , '3341' , '3342' , '0126' , '6614' , '5409' , '6065' , '7666' , '5393' , '9926' , '9316' , '6761']:
                 empresa = 'SUPERNOVA'
                 vencimento = vencSPN
                 conta = contaSPN
@@ -121,14 +121,13 @@ with open('csv.csv','r') as cartao:
                 loc = locSPN
                 emp = empSPN
 
-            elif linha[6] in ['4388'  , '9033' , '1450' , '7256' , '8931' , '3428' , '5550' , '0156' , '9342' , '6055' , '0577' , '3791' , '0694' , '9544' , '8405' , '5129' , '5678', '9637' , '1588' , '9244' , '3288' , '3306' , '6613']:
+            elif linha[6].strip().replace('"', '') in ['4388'  , '9033' , '1450' , '7256' , '8931' , '3428' , '5550' , '0156' , '9342' , '6055' , '0577' , '3791' , '0694' , '9544' , '8405' , '5129' , '5678', '9637' , '1588' , '9244' , '3288' , '3306' , '6613']:
                 empresa = 'AUVP CONSULTORIA'
                 vencimento = vencAUVP
                 conta = contaAUVP
                 id = idAUVP
                 loc = locAUVP
                 emp = empAUVP
-            
 
             if int(linha[0][8:10]) >= (int(vencimento[0:2]) - 6):
                 month = mes_seguinte.month
@@ -212,7 +211,7 @@ with open('csv.csv','r') as cartao:
                 entidade = 'SUPABASE'
             elif 'PG *NOTAZZ GESTAO FISC' in linha[2]:
                 entidade = 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA'
-            elif 'CLAUDE.AI' in linha[2] and '3559':
+            elif 'CLAUDE.AI' in linha[2]:
                 entidade = 'CLAUDE.AI'
             elif 'STACKBLITZ' in linha[2]:
                 entidade = 'STACKBLITZ, INC'
@@ -256,7 +255,6 @@ with open('csv.csv','r') as cartao:
                 entidade = 'MANUS AI'
             elif 'TWILIO SENDGRID' in linha[2]:
                 entidade = 'TWILIO EXPANSION LLC'
-                entidade = 'INVESTING.COM'
             elif 'TURBOSCRIBE' in linha[2]:
                 entidade = 'TURBOSCRIBE'
             elif 'OPUS CLIP' in linha[2]:
@@ -273,6 +271,8 @@ with open('csv.csv','r') as cartao:
                 entidade = 'MERCADOLIVRE.COM'
             elif 'OPUS CLIP' in linha[2]:
                 entidade = 'OPUS CLIP'
+            elif 'DECOLAR' in linha[2]:
+                entidade = 'DECOLAR. COM LTDA'
             elif 'IOF - COMPRA INTERNACIONAL' in linha[2]:
                 contaDespesa = '3.6.1.01.005 IOF'
            
@@ -442,10 +442,10 @@ with open('csv.csv','r') as cartao:
             elif 'GURU-DISCIPULO PLUS 3' in linha[2] and '2599' in linha[6] and int(linha[0][8:10]) == 4:
                 importa(empresa, conta, 'DIGITAL MANAGER GURU - MARGEM INQUESTIONÁVEL SA', 'INSIDE SALES', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'O SUPERPODER', venc, id, emp,loc)
             # CANVA
-            elif 'EBN *Canva' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 5 and nvalor == '44,9':
+            elif 'EBN *Canva' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 5 and nvalor == '44,99':
                 importa(empresa, conta, 'CANVA PTY LTD.', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', venc, id, emp,loc)
             # GOOGLE AMAZON
-            elif 'DL*GOOGLE Amazon' in linha[2] and '5206' in linha[6] and int(linha[0][8:10]) == 6 and nvalor == '19,9':
+            elif 'DL *GOOGLE Amazon' in linha[2] and '5206' in linha[6] and int(linha[0][8:10]) == 6 and nvalor == '19,9':
                 importa(empresa, conta, 'AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', venc, id, emp,loc)
             # ADOBE DIA 6 AUDIOVISUAL
             elif 'ADOBE' in linha[2] and '5206' in linha[6] and int(linha[0][8:10]) == 6 and nvalor == '275,0':
