@@ -179,7 +179,7 @@ with open('auvp.csv','r') as cartao:
                 entidade = 'BRAPI ASL TECNOLOGIA LTDA'
             elif 'STAPE, INC' in linha[2]:
                 entidade = 'STAPE, INC.'
-            elif 'EBN *Canva' in linha[2]:
+            elif 'EBN*Canva' in linha[2].replace(" ",""):
                 entidade = 'CANVA PTY LTD.'
             elif 'LEARNWORLDS CY LTD' in linha[2]:
                 entidade = 'LEARNWORLDS (CY) LTD'
@@ -189,7 +189,7 @@ with open('auvp.csv','r') as cartao:
                 entidade = 'AOVS SISTEMAS DE INFORMATICA SA'
             elif 'ELEVENLABS.IO' in linha[2]:
                 entidade = 'ELEVENLABS.IO'
-            elif 'MSFT *' in linha[2]:
+            elif 'MSFT*' in linha[2].replace(" ",""):
                 entidade = 'MICROSOFT INFORMATICA LTDA'
             elif 'NOTIFICACOES INTELIGEN' in linha[2]:
                 entidade = 'KIWIFY PAGAMENTOS, TECNOLOGIA E SERVICOS LTDA'
@@ -199,7 +199,7 @@ with open('auvp.csv','r') as cartao:
                 entidade = 'OLIST TINY TECNOLOGIA LTDA'
             elif 'ADOBE' in linha[2]:
                 entidade = 'ADOBE SYSTEMS BRASIL LTDA.'
-            elif 'EBN *SEMRUSH' in linha[2]:
+            elif 'EBN*SEMRUSH' in linha[2].replace(" ",""):
                 entidade = 'SEMRUSH'
             elif 'FIGMA' in linha[2]:
                 entidade = 'FIGMA MONTHLY RENEWAL'
@@ -209,7 +209,7 @@ with open('auvp.csv','r') as cartao:
                 entidade = 'MANYCHAT INC.'
             elif 'SUPABASE' in linha[2]:
                 entidade = 'SUPABASE'
-            elif 'PG *NOTAZZ GESTAO FISC' in linha[2]:
+            elif 'PG*NOTAZZ GESTAO FISC' in linha[2].replace(" ",""):
                 entidade = 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA'
             elif 'CLAUDE.AI' in linha[2]:
                 entidade = 'CLAUDE.AI'
@@ -227,7 +227,7 @@ with open('auvp.csv','r') as cartao:
                 entidade = 'OPENAI,LLC'
             elif 'Amazon AWS Servicos Br' in linha[2]:
                 entidade = 'AMAZON AWS SERVICOS BRASIL LTDA'
-            elif 'PG *BR DID TELEFONIA' in linha[2]:
+            elif 'PG*BRDIDTELEFONIA' in linha[2].replace(" ",""):
                 entidade = 'BR TECH TECNOLOGIA EM SISTEMAS LTDA'
             elif 'LOVABLE' in linha[2]:
                 entidade = 'LOVABLE'
@@ -247,9 +247,7 @@ with open('auvp.csv','r') as cartao:
                 entidade = 'MONGODB SERVICOS DE SOFTWARE NO BRASIL LTDA.'
             elif 'GURU-DISCIPULO PLUS 3' in linha[2]:
                 entidade = 'DIGITAL MANAGER GURU - MARGEM INQUESTIONÁVEL SA'
-            elif 'EBN *Canva' in linha[2]:
-                entidade = 'CANVA PTY LTD.'
-            elif 'DL*GOOGLE Amazon' in linha[2]:
+            elif 'DL*GOOGLEAmazon' in linha[2].replace(" ",""):
                 entidade = 'AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.'
             elif 'MANUS AI' in linha[2]:
                 entidade = 'MANUS AI'
@@ -292,10 +290,10 @@ with open('auvp.csv','r') as cartao:
             elif 'FACEBK' in linha[2] and '4836' in linha[6]:
                 importa(empresa, conta, 'FACEBOOK SERVICOS ONLINE DO BRASIL LTDA', 'PUBLICIDADE', '3.4.1.03.001 PROPAGANDA E PUBLICIDADE - TRAFEGO', 'AUVP ANALÍTICA', venc, id, emp,loc)  
             # Imagify
-            elif 'WP MEDIA - IMAGIFY' in linha[2] and '8389' in linha[6] and int(linha[0][8:10]) == 9:
+            elif 'WP MEDIA - IMAGIFY' in linha[2] and '8389' in linha[6] and int(linha[0][8:10]) == 9 and linha[3] == '5.99':
                 importa(empresa, conta, 'IMAGIFY', 'PUBLICIDADE', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # Openai dia 09 e 23 DNS - alyf
-            elif 'OPENAI *CHATGPT SUBSCR' in linha[2] and '3559' in linha[6] and (int(linha[0][8:10]) == 9 or int(linha[0][8:10]) == 23) :
+            elif 'OPENAI *CHATGPT SUBSCR' in linha[2] and '3559' in linha[6] and (int(linha[0][8:10]) == 9 or int(linha[0][8:10]) == 23) and linha[3] == '20.0':
                 importa(empresa, conta, 'OPENAI,LLC', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: DNS', venc, id, emp,loc)
             #Amazon Prime
             elif 'AmazonPrimeBR' in linha[2] and '8389' in linha[6] and int(linha[0][8:10]) == 10 and nvalor == '19,9':
@@ -307,25 +305,25 @@ with open('auvp.csv','r') as cartao:
             elif 'BRAPI.DEV' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 10 and nvalor == '49,99':
                 importa(empresa, conta, 'BRAPI ASL TECNOLOGIA LTDA', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)
             # STAPE INC
-            elif 'STAPE, INC' in linha[2] and '2289' in linha[6] and 9 <= int(linha[0][8:10]) == 11:
+            elif 'STAPE, INC' in linha[2] and '2289' in linha[6] and (int(linha[0][8:10]) == 11 or int(linha[0][8:10]) == 19) and linha[3] == '20.0':
                 importa(empresa, conta, 'STAPE, INC.', 'PUBLICIDADE', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)
             # EBN Canva
-            elif 'EBN *Canva' in linha[2] and '8409' in linha[6] and int(linha[0][8:10]) == 13 and nvalor == '174,5':
+            elif 'EBN*Canva' in linha[2].replace(" ","") and '8409' in linha[6] and int(linha[0][8:10]) == 13 and nvalor == '174,5':
                 importa(empresa, conta, 'CANVA PTY LTD.', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: DNS', venc, id, emp,loc)
             # LEARNWORLDS CY LTD dia 13, 22 e 29
             elif 'LEARNWORLDS CY LTD' in linha[2] and '2289' in linha[6] and (int(linha[0][8:10]) == 13 or int(linha[0][8:10]) == 22 or int(linha[0][8:10]) == 29):
                 importa(empresa, conta, 'LEARNWORLDS (CY) LTD', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # WINDSOR.AI
-            elif 'WINDSOR.AI' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 14:
+            elif 'WINDSOR.AI' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 14  and linha[3] == '299.0':
                 importa(empresa, conta, 'WINDSOR.AI', 'PUBLICIDADE', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)
             # AOVS
             elif 'AOVS SISTEMAS DE INFOR' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 16 and nvalor == '530,0':
                 importa(empresa, conta, 'AOVS SISTEMAS DE INFORMATICA SA', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # ELEVENLABS
-            elif 'ELEVENLABS.IO' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 17:
+            elif 'ELEVENLABS.IO' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 17 and linha[3] == '5.0':
                 importa(empresa, conta, 'ELEVENLABS.IO', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # MICROSOFT
-            elif 'MSFT *' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 18:
+            elif 'MSFT*' in linha[2].replace(" ","") and '2289' in linha[6] and int(linha[0][8:10]) == 18:
                 importa(empresa, conta, 'MICROSOFT INFORMATICA LTDA', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # KIWIFY NOTIFICA
             elif 'NOTIFICACOES INTELIGEN' in linha[2] and '2236' in linha[6] and int(linha[0][8:10]) == 18:
@@ -333,23 +331,20 @@ with open('auvp.csv','r') as cartao:
             # UAZAPI
             elif 'UAZAPI - API WHATSAPP' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 19 and nvalor == '29,0' :
                 importa(empresa, conta, 'UAZAPI', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
-            # STAPE
-            elif 'STAPE, INC.' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 19:
-                importa(empresa, conta, 'STAPE, INC.', 'PUBLICIDADE', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)
             # TINY
-            elif 'TINY ERP' in linha[2] and '8389' in linha[6] and int(linha[0][8:10]) == 20:
+            elif 'TINY ERP' in linha[2] and '8389' in linha[6] and int(linha[0][8:10]) == 20 and nvalor == '135,89':
                 importa(empresa, conta, 'OLIST TINY TECNOLOGIA LTDA', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)
             # ADOBE DIA 20 e 06   
             elif 'ADOBE' in linha[2] and '2289' in linha[6] and (int(linha[0][8:10]) == 20 or int(linha[0][8:10]) == 6) and nvalor == '275,0':
                 importa(empresa, conta, 'ADOBE SYSTEMS BRASIL LTDA.', 'PRODUÇÃO AUDIOVISUAL', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: DNS', venc, id, emp,loc)
             # SEMRUSH   
-            elif 'EBN *SEMRUSH' in linha[2] and '8389' in linha[6] and int(linha[0][8:10]) == 21:
+            elif 'EBN*SEMRUSH' in linha[2].replace(" ","") and '8389' in linha[6] and int(linha[0][8:10]) == 21:
                 importa(empresa, conta, 'SEMRUSH', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: DNS', venc, id, emp,loc)
             # FIGMA
             elif 'FIGMA' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 21:
                 importa(empresa, conta, 'FIGMA MONTHLY RENEWAL', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
-            # BITLy  
-            elif 'BITLY.COM' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 22:
+            # BITLY
+            elif 'BITLY.COM' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 22 and linha[3] == '35.0':
                 importa(empresa, conta, 'BITLY COM', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: DNS', venc, id, emp,loc)
             # MANYCHAT    
             elif 'MANYCHAT.COM' in linha[2] and '5518' in linha[6] and int(linha[0][8:10]) == 25:
@@ -358,22 +353,22 @@ with open('auvp.csv','r') as cartao:
             elif 'SUPABASE' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 26:
                 importa(empresa, conta, 'SUPABASE', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP SEMPRE', venc, id, emp,loc)
             # NOTAZZ  
-            elif 'PG *NOTAZZ GESTAO FISC' in linha[2] and '2289' in linha[6] and int(linha[0][8:10]) == 26:
+            elif 'PG*NOTAZZGESTAOFISC' in linha[2].replace(" ","") and '2289' in linha[6] and int(linha[0][8:10]) == 26 and nvalor == '367,90':
                 importa(empresa, conta, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # CLAUDE  
             elif 'CLAUDE.AI' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 27 and nvalor == '110,0':
                 importa(empresa, conta, 'CLAUDE.AI', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)
             # BOLT STACKBLITZ  
-            elif 'BOLT (BY STACKBLITZ)' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 27:
+            elif 'BOLT (BY STACKBLITZ)' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 27 and linha[3] == '20.0':
                 importa(empresa, conta, 'STACKBLITZ, INC', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)
             # CALENDY
-            elif 'CALENDLY' in linha[2] and '7886' in linha[6] and int(linha[0][8:10]) == 28:
+            elif 'CALENDLY' in linha[2] and '7886' in linha[6] and int(linha[0][8:10]) == 28 and linha[3] == '20.0':
                 importa(empresa, conta, 'CALENDLY LLC', 'INSIDE SALES', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # VERCEL
-            elif 'VERCEL INC.' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 29:
+            elif 'VERCEL INC.' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 29 and linha[3] == '20.0':
                 importa(empresa, conta, 'VERCEL INC.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'OPERAÇÃO & PRODUÇÃO: DNS', venc, id, emp,loc)
             # ENVATO
-            elif 'ENVATO' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 29:
+            elif 'ENVATO' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 29 and linha[3] == '33.0':
                 importa(empresa, conta, 'EVANATO ELEMENTES PTY LTD', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: DNS', venc, id, emp,loc)
             # TOPINVEST   
             elif 'TOPINVEST ED*TOP INVES' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 1 and nvalor == '99,9':
@@ -385,22 +380,22 @@ with open('auvp.csv','r') as cartao:
             elif 'Amazon AWS Servicos Br' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 2:
                 importa(empresa, conta, 'AMAZON AWS SERVICOS BRASIL LTDA', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.002 SERVIÇO DE HOSPEDAGEM E NUVEM', 'OPERAÇÃO & PRODUÇÃO: DNS', venc, id, emp,loc)
             # BR DID dia 03 e 17 Maurício atendimento
-            elif 'PG *BR DID TELEFONIA' in linha[2] and '2889' in linha[6] and ((int(linha[0][8:10]) == 3 and nvalor == '11,9') or (int(linha[0][8:10]) == 17 and nvalor == '29,8')):
+            elif 'PG*BRDIDTELEFONIA' in linha[2].replace(" ","") and '2889' in linha[6] and ((int(linha[0][8:10]) == 3 and nvalor == '11,9') or (int(linha[0][8:10]) == 17 and nvalor == '29,8')):
                 importa(empresa, conta, 'BR TECH TECNOLOGIA EM SISTEMAS LTDA', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'COMERCIAL: DNS', venc, id, emp,loc)
             # BR DID dia 16 e 19 alyf
-            elif 'PG *BR DID TELEFONIA' in linha[2] and '3559' in linha[6] and (int(linha[0][8:10]) == 16 or int(linha[0][8:10]) == 19)and nvalor == '23,9':
+            elif 'PG*BRDIDTELEFONIA' in linha[2].replace(" ","") and '3559' in linha[6] and (int(linha[0][8:10]) == 16 or int(linha[0][8:10]) == 19)and nvalor == '23,9':
                 importa(empresa, conta, 'BR TECH TECNOLOGIA EM SISTEMAS LTDA', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # CHATGPT VITÃO
-            elif 'OPENAI *CHATGPT SUBSCR' in linha[2] and '2889' in linha[6] and int(linha[0][8:10]) == 7:
+            elif 'OPENAI*CHATGPT SUBSCR' in linha[2].replace(" ","") and '2889' in linha[6] and int(linha[0][8:10]) == 7 and linha[3] == '20.0':
                 importa(empresa, conta, 'OPENAI,LLC', 'PUBLICIDADE', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'CANAL INVESTIDOR SARDINHA', venc, id, emp,loc)
             # LOVABLE
-            elif 'LOVABLE' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 7:
+            elif 'LOVABLE' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 7 and linha[3] == '25.0':
                 importa(empresa, conta, 'LOVABLE', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             # USERBACK
-            elif 'USERBACK*' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 7:
+            elif 'USERBACK*' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 7 and linha[3] == '68.0':
                 importa(empresa, conta, 'USERBACK.IO', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'AUVP ANALíTICA', venc, id, emp,loc)
             #RAILWAY
-            elif 'RAILWAY' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 4:
+            elif 'RAILWAY' in linha[2] and '3559' in linha[6] and int(linha[0][8:10]) == 4 and linha[3] == '20.0':
                 importa(empresa, conta, 'RAILWAY CORP.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: DNS', venc, id, emp,loc)
             
             ### ------------------------- COMPRAS THE BRAIN -------------------------------- ###
@@ -409,10 +404,10 @@ with open('auvp.csv','r') as cartao:
             elif 'WEBFLOW.COM' in linha[2] and '7003' in linha[6]:
                 importa(empresa, conta, 'WEBFLOW INC.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', venc, id, emp,loc)
             # BIGPSY
-            elif 'BIGSPY' in linha[2] and '5206' in linha[6] and int(linha[0][8:10]) == 10:
+            elif 'BIGSPY' in linha[2] and '5206' in linha[6] and int(linha[0][8:10]) == 10 and linha[3] == '99.0':
                 importa(empresa, conta, 'BIGSPY', 'PUBLICIDADE', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)
             # PADDLE NET CLOUD
-            elif 'PADDLE.NET * N8N CLOUD1' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 12 and nvalor == '360,0':
+            elif 'PADDLE.NET*N8NCLOUD1' in linha[2].replace(" ","") and '7003' in linha[6] and int(linha[0][8:10]) == 12 and nvalor == '360,0':
                 importa(empresa, conta, 'CLOUD1 SERVICOS DE INFORMATICA LTDA.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.002 SERVIÇO DE HOSPEDAGEM E NUVEM', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', venc, id, emp,loc)
             # CLICKUP DIA 13
             elif 'CLICKUP' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 13:
@@ -427,7 +422,7 @@ with open('auvp.csv','r') as cartao:
             elif 'ADOBE' in linha[2] and '8537' in linha[6] and int(linha[0][8:10]) == 26 and nvalor == '139,0':
                 importa(empresa, conta, 'ADOBE SYSTEMS BRASIL LTDA.', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', venc, id, emp,loc)
             # NOTAZZ
-            elif 'PG *NOTAZZ GESTAO FISC' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 27 and nvalor == "910,9":
+            elif 'PG*NOTAZZGESTAOFISC' in linha[2].replace(" ","") and '7003' in linha[6] and int(linha[0][8:10]) == 27 and nvalor == "910,9":
                 importa(empresa, conta, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: THE BRAIN', venc, id, emp,loc)
             # GOOGLE WTF
             elif 'Google GSUITE_wtf.mais' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 1:
@@ -436,16 +431,16 @@ with open('auvp.csv','r') as cartao:
             elif 'MONGODBCLOUD PAULO' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 2:
                 importa(empresa, conta, 'MONGODB SERVICOS DE SOFTWARE NO BRASIL LTDA.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', venc, id, emp,loc)
             # MANYCHAT
-            elif 'MANYCHAT.COM' in linha[2] and '5206' in linha[6] and int(linha[0][8:10]) == 3:
+            elif 'MANYCHAT.COM' in linha[2] and '5206' in linha[6] and int(linha[0][8:10]) == 3 and linha[3] == '65.0':
                 importa(empresa, conta, 'MANYCHAT INC.', 'PUBLICIDADE', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'O SUPERPODER', venc, id, emp,loc)
             # GURU DIA 4 INSIDE SALES
-            elif 'GURU-DISCIPULO PLUS 3' in linha[2] and '2599' in linha[6] and int(linha[0][8:10]) == 4:
+            elif 'GURU-DISCIPULO PLUS 3' in linha[2] and '2599' in linha[6] and int(linha[0][8:10]) == 4 and linha[3] == '187.35':
                 importa(empresa, conta, 'DIGITAL MANAGER GURU - MARGEM INQUESTIONÁVEL SA', 'INSIDE SALES', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'O SUPERPODER', venc, id, emp,loc)
             # CANVA
-            elif 'EBN *Canva' in linha[2] and '7003' in linha[6] and int(linha[0][8:10]) == 5 and nvalor == '44,99':
+            elif 'EBN*Canva' in linha[2].replace(" ","") and '7003' in linha[6] and int(linha[0][8:10]) == 5 and nvalor == '44,99':
                 importa(empresa, conta, 'CANVA PTY LTD.', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', venc, id, emp,loc)
             # GOOGLE AMAZON
-            elif 'DL *GOOGLE Amazon' in linha[2] and '5206' in linha[6] and int(linha[0][8:10]) == 6 and nvalor == '19,9':
+            elif 'DL*GOOGLEAmazon' in linha[2].replace(" ","") and '5206' in linha[6] and int(linha[0][8:10]) == 6 and nvalor == '19,9':
                 importa(empresa, conta, 'AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: THE BRAIN', venc, id, emp,loc)
             # ADOBE DIA 6 AUDIOVISUAL
             elif 'ADOBE' in linha[2] and '5206' in linha[6] and int(linha[0][8:10]) == 6 and nvalor == '275,0':
@@ -455,55 +450,55 @@ with open('auvp.csv','r') as cartao:
             ### ------------------------- COMPRAS SUPERNOVA -------------------------------- ###
 
             # GOOGLE GSUITE SUPERNOVA
-            elif 'DL *GOOGLE GSUITEasupe' in linha[2] and '5393' in linha[6] and int(linha[0][8:10]) == 6:
+            elif 'DL*GOOGLE GSUITEasupe' in linha[2].replace(" ","") and '5393' in linha[6] and int(linha[0][8:10]) == 6:
                 importa(empresa, conta, 'GOOGLE - GSUITE', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', venc, id, emp,loc)
             # LOVABLE
             elif 'LOVABLE' in linha[2] and '0799' in linha[6] and (int(linha[0][8:10]) == 13 or int(linha[0][8:10]) == 1):
                 importa(empresa, conta, 'LOVABLE', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)
             #  MANUS
-            elif 'MANUS AI' in linha[2] and '0799' in linha[6] and int(linha[0][8:10]) == 15:
+            elif 'MANUS AI' in linha[2] and '0799' in linha[6] and int(linha[0][8:10]) == 15 and linha[3] == '199.0':
                 importa(empresa, conta, 'MANUS AI', 'PRODUTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', venc, id, emp,loc)
             # OPENAI CONTROLADORIA DIA 17
-            elif 'OPENAI *CHATGPT SUBSCR' in linha[2] and '7666' in linha[6] and int(linha[0][8:10]) == 17:
+            elif 'OPENAI*CHATGPTSUBSCR' in linha[2].replace(" ","") and '7666' in linha[6] and int(linha[0][8:10]) == 17 and linha[3] == '20.0':
                 importa(empresa, conta, 'OPENAI,LLC', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', venc, id, emp,loc)
             # OPENAIO PRODUTO DIA 3 E 19
-            elif 'OPENAI *CHATGPT SUBSCR' in linha[2] and '6614' in linha[6] and (int(linha[0][8:10]) == 19 or int(linha[0][8:10]) == 3):
+            elif 'OPENAI*CHATGPTSUBSCR' in linha[2].replace(" ","") and '6614' in linha[6] and (int(linha[0][8:10]) == 19 or int(linha[0][8:10]) == 3) and linha[3] == '20.0':
                 importa(empresa, conta, 'OPENAI,LLC', 'PRODUTO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', venc, id, emp,loc)
             # GOOGLE ONE AUDIOVISUAL
-            elif 'DL *GOOGLE Google One' in linha[2] and '3341' in linha[6] and int(linha[0][8:10]) == 25:
+            elif 'DL*GOOGLEGoogleOne' in linha[2].replace(" ","") and '3341' in linha[6] and int(linha[0][8:10]) == 25 and nvalor == '609,0':
                 importa(empresa, conta, 'GOOGLE - GSUITE', 'PRODUÇÃO AUDIOVISUAL', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'ADMINISTRATIVO: SUPERNOVA', venc, id, emp,loc)
             # VERCEL
-            elif 'VERCEL INC.' in linha[2] and '5393' in linha[6] and int(linha[0][8:10]) == 28:
+            elif 'VERCEL INC.' in linha[2] and '5393' in linha[6] and int(linha[0][8:10]) == 28 and linha[3] == '20.0':
                 importa(empresa, conta, 'VERCEL INC.', 'TECNOLOGIA E DESENVOLVIMENTO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', venc, id, emp,loc)
             # WORKSPACE FACE
             elif 'FACEBK' in linha[2] and '6614' in linha[6] and int(linha[0][8:10]) == 1:
                 importa(empresa, conta, 'FACEBOOK SERVICOS ONLINE DO BRASIL LTDA', 'CAPITAL HUMANO', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'ADMINISTRATIVO: SUPERNOVA', venc, id, emp,loc)
             # OPENAI JURIDICO CAMILA EMILY
-            elif 'OPENAI *CHATGPT SUBSCR' in linha[2] and '6614' in linha[6] and int(linha[0][8:10]) == 4:
+            elif 'OPENAI*CHATGPTSUBSCR' in linha[2].replace(" ","") and '6614' in linha[6] and int(linha[0][8:10]) == 4 and linha[3] == '20.0':
                 importa(empresa, conta, 'OPENAI,LLC', 'JURÍDICO', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'OPERAÇÃO & PRODUÇÃO: SUPERNOVA', venc, id, emp,loc)
             # SENDGRID 
-            elif 'TWILIO SENDGRID' in linha[2] and '6614' in linha[6] and int(linha[0][8:10]) == 3:
+            elif 'TWILIO SENDGRID' in linha[2] and '6614' in linha[6] and int(linha[0][8:10]) == 3 and linha[3] == '89.95':
                 importa(empresa, conta, 'TWILIO EXPANSION LLC', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP ESCOLA', venc, id, emp,loc)   
             
             ### ------------------------- COMPRAS AUVP -------------------------------- ###
 
             # NOTAZZ
-            elif 'PG *NOTAZZ GESTAO FISC' in linha[2] and '9342' in linha[6] and int(linha[0][8:10]) == 15 and nvalor == '728,9':
+            elif 'PG*NOTAZZGESTAOFISC' in linha[2].replace(" ","") and '9342' in linha[6] and int(linha[0][8:10]) == 15 and nvalor == '728,9':
                 importa(empresa, conta, 'NOTAZZ GESTAO FISCAL E LOGISTICA LTDA', 'CONTROLADORIA E FINANÇAS', '3.5.1.04.002 LICENÇAS E USO DE SOFTWARES', 'AUVP CONSULTORIA', venc, id, emp,loc)
             # INVESTING
             elif 'INVESTING.COM' in linha[2] and '9033' in linha[6] and int(linha[0][8:10]) == 22 and nvalor == '99,0':
                 importa(empresa, conta, 'INVESTING.COM', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.003 SERVIÇO DE ACESSO A CONTEÚDO', 'AUVP CONSULTORIA', venc, id, emp,loc)
             # BR DID
-            elif 'PG *BR DID TELEFONIA' in linha[2] and '3428' in linha[6] and int(linha[0][8:10]) == 25 and nvalor == '23,9':
+            elif 'PG*BRDIDTELEFONIA' in linha[2].replace(" ","") and '3428' in linha[6] and int(linha[0][8:10]) == 25 and nvalor == '23,9':
                 importa(empresa, conta, 'BR TECH TECNOLOGIA EM SISTEMAS LTDA', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', venc, id, emp,loc)
             # TURBOSCRIBE
-            elif 'TURBOSCRIBE' in linha[2] and '3428' in linha[6] and int(linha[0][8:10]) == 29:
+            elif 'TURBOSCRIBE' in linha[2] and '3428' in linha[6] and int(linha[0][8:10]) == 29 and linha[3] == '20.0':
                 importa(empresa, conta, 'TURBOSCRIBE', 'ATENDIMENTO E CX', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', venc, id, emp,loc)
             # OPUSCLIP
-            elif 'OPUS CLIP' in linha[2] and '9342' in linha[6] and int(linha[0][8:10]) == 6:
+            elif 'OPUS CLIP' in linha[2] and '9342' in linha[6] and int(linha[0][8:10]) == 6 and linha[3] == '19.0':
                 importa(empresa, conta, 'OPUS CLIP', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP BANCO', venc, id, emp,loc)
             # GURU APRENDIZ
-            elif 'GURU-APRENDIZ-II' in linha[2] and '9342' in linha[6] and int(linha[0][8:10]) == 9:
+            elif 'GURU-APRENDIZ-II' in linha[2] and '9342' in linha[6] and int(linha[0][8:10]) == 9 and linha[3] == '64.87':
                 importa(empresa, conta, 'DIGITAL MANAGER GURU - MARGEM INQUESTIONÁVEL SA', 'CONSULTORIA E INVESTIMENTOS', '3.4.1.06.001 CUSTO COM MANUTENÇÃO, LICENÇA E USO DE SOFTWARE', 'AUVP CONSULTORIA', venc, id, emp,loc)
             # AMAZON PRIME
             elif 'AmazonPrimeBR' in linha[2] and '3306' in linha[6] and int(linha[0][8:10]) == 11 and nvalor == '19,9':
